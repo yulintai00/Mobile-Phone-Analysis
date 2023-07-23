@@ -92,11 +92,9 @@ def search(regex: str, df, case=False):
 
 
 # Create a list variable to search for names and phone numbers to search for in the 'df_chat' DataFrame
-name_list = ['Steen', 'Ilke', 'Arkan', 'Lynne Tai', 'Lynne', 'Tai', 'Joey',
-             'Wage', 'Joey Wage', 'Joe', 'Sremack','Joe Sremack', 'Elder', 'Texeira',
-             'Elder Texeira', 'Rafael', 'Siqueira', 'Rafael Siqueira']
+name_list = ['Remove_name1', 'Remove_name2', 'Remove_name3']
 
-phone_list = ['4259996160', '2024239803', '5511989704680', '5511984919725', '11989704680', '11984919725']
+phone_list = ['425999xxxx', '202423xxxx', '551198970xxxx', '551198491xxxx', '1198970xxxx', '1198491xxxx']
 
 
 # In[9]:
@@ -113,8 +111,8 @@ for name in name_list:
 
 
 # Mapping to replace certain names in 'df_chats': The names that need to be aliased are Elder Texeira and Rafael
-name_mapping = {'Rafael':'Clark', 'Elder Teixeira' : 'Barry Kent',
-                'Elder': 'Barry', 'Teixeira':'Kent'}
+name_mapping = {'Remove_name1':'Clark', 'Remove_name2' : 'Barry Kent',
+                'Remove_name3': 'Barry'}
 
 
 # In[11]:
@@ -142,7 +140,7 @@ for phone in phone_list:
 
 
 # The phone numbers that need to be aliased
-phone_mapping = {'4259996160': '1234567890', '2024239803': '2345678901', '11989704680':'3456789012', '11984919725':'4567890123'}
+phone_mapping = {'425999xxxx': '1234567890', '202423xxxx': '2345678901', '1198970xxxx':'3456789012', '1198491xxxx':'4567890123'}
 
 
 # In[14]:
@@ -241,7 +239,7 @@ df_app_working['Ephemeral'] = df_app_working['Name'].fillna('').apply(lambda x: 
 
 # Create a regex pattern to match phone numbers
 phone_pattern = r"\+\d{1,3}\s?\(\d{3}\)\s?\d{3}[-\s]?\d{4}|\d{10}"
-phone_mapping = {'14259996160': '11234567890', '12024239803': '12345678901', '11989704680':'3456789012', '11984919725':'4567890123'}
+phone_mapping = {'1425999xxxx': '11234567890', '1202423xxxx': '12345678901', '1198970xxxx':'3456789012', '1198491xxxx':'4567890123'}
 
 # Iterate over the 'df_contacts_working' DataFrame and replace phone numbers in the 'Name' column
 for index, row in df_contacts_working.iterrows():
